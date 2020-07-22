@@ -363,17 +363,17 @@ public final class DeltaUtil_mxJPO
                             }
                         }
                         if (!ignore)  {
-                            boolean remove = false;
+                            //Commented by ABagryanov to prevent exception throwing when attribute is removed
+                            /**boolean remove = false;
                             for (final String removeAttr : removeElems)  {
                                 if (StringUtil_mxJPO.match(curValue, removeAttr))  {
-                                    remove = true;
+                                    remove = true;**/
                                     _paramCache.logDebug("    - " + _kind +" '" + curValue + "' is not assigned anymore and therefore removed");
                                     _mql.newLine().cmd("remove ").cmd(_kind).cmd(" ").arg(curValue);
-                                    break;
+                           /**         break;
                                 }
                             }
-                            //Commented by ABagryanov to prevent exception throwing when attribute is removed
-                            /**if (!remove)  {
+                            if (!remove)  {
                                 throw new UpdateException_mxJPO(_errorKey, curValue, _parentName);
                             }**/
                         }
