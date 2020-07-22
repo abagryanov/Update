@@ -150,7 +150,9 @@ public class LocalAttributeList_mxJPO
         throws UpdateException_mxJPO
     {
         // check for removed attributes
-        if (_current != null)  {
+
+        //Commented by ABagryanov to prevent exception throwing when attribute is removed
+        /**if (_current != null)  {
             for (final LocalAttribute tmpAttr : _current) {
                 boolean found = false;
                 for (final LocalAttribute targetAttr : this)  {
@@ -163,7 +165,7 @@ public class LocalAttributeList_mxJPO
                     throw new UpdateException_mxJPO(_errorKeyAttrRemoved, tmpAttr.getName(), this.owner.getName());
                 }
             }
-        }
+        }**/
 
         // delta calculation for added / updated attributes
         for (final LocalAttribute targetAttr : this)  {

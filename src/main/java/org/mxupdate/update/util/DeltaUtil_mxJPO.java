@@ -372,9 +372,10 @@ public final class DeltaUtil_mxJPO
                                     break;
                                 }
                             }
-                            if (!remove)  {
+                            //Commented by ABagryanov to prevent exception throwing when attribute is removed
+                            /**if (!remove)  {
                                 throw new UpdateException_mxJPO(_errorKey, curValue, _parentName);
-                            }
+                            }**/
                         }
                     }
                 }
