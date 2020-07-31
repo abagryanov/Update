@@ -155,9 +155,11 @@ public class LocalPathTypeList_mxJPO
                     break;
                 }
             }
-            if (!found)  {
+
+            //Commented by ABahryanov
+            /**if (!found)  {
                 throw new UpdateException_mxJPO(_errorKeyAttrRemoved, tmpLocalPathType.getName(), this.owner.getName());
-            }
+            }**/
         }
 
         // delta calculation for added / updated attributes

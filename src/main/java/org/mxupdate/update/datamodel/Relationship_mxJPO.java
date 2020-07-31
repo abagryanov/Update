@@ -334,13 +334,14 @@ public class Relationship_mxJPO
         final String thisDerived = (this.derived == null) ? "" : this.derived;
         final String currDerived = (_current.derived == null) ? "" : _current.derived;
         if (!thisDerived.equals(currDerived))  {
-            if (!currDerived.isEmpty())  {
+            //Commented by ABagryanov
+            /**if (!currDerived.isEmpty())  {
                 throw new UpdateException_mxJPO(
                         ErrorKey.DM_RELATION_UPDATE_DERIVED,
                         this.getName(),
                         currDerived,
                         this.derived);
-            }
+            }**/
             _mql.newLine().cmd("derived ").arg(thisDerived);
         }
 
