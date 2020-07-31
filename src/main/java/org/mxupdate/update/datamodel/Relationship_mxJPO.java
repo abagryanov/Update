@@ -342,7 +342,11 @@ public class Relationship_mxJPO
                         currDerived,
                         this.derived);
             }**/
-            _mql.newLine().cmd("derived ").arg(thisDerived);
+            if (thisDerived.isEmpty()) {
+                _mql.newLine().cmd("remove derived");
+            } else {
+                _mql.newLine().cmd("derived ").arg(thisDerived);
+            }
         }
 
         // kind at least to ensure all properties are set
