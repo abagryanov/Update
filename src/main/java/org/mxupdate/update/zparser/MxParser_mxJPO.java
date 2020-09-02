@@ -4371,7 +4371,7 @@ this.setValue(_role, "kind", Role_mxJPO.Kind.Role);
           }
             case KIND_PROJECT_GROUP: {
                 jj_consume_token(KIND_PROJECT_GROUP);
-                this.setValue(_role, "kind", Role_mxJPO.Kind.GroupProject);
+                this.setValue(_role, "kind", Role_mxJPO.Kind.AProjectGroup);
                 break;
             }
         default:
