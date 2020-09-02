@@ -1054,6 +1054,7 @@ interface MxParserConstants_mxJPO {
     "\"numeric\"",
     "\"other\"",
     "\"none\"",
+    "\"projectgroup\"",
   };
 
 }
