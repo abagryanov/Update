@@ -18,7 +18,6 @@
 package org.mxupdate.update.zparser;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -57,16 +56,11 @@ import org.mxupdate.update.userinterface.Inquiry_mxJPO;
 import org.mxupdate.update.userinterface.Menu_mxJPO;
 import org.mxupdate.update.userinterface.Portal_mxJPO;
 import org.mxupdate.update.userinterface.Table_mxJPO;
-import org.mxupdate.update.userinterface.Table_mxJPO.Column;
 import org.mxupdate.update.userinterface.helper.ChildRefList_mxJPO.AbstractRef;
 import org.mxupdate.update.userinterface.helper.ChildRefList_mxJPO.ChannelRef;
 import org.mxupdate.update.userinterface.helper.ChildRefList_mxJPO.CommandRef;
 import org.mxupdate.update.userinterface.helper.ChildRefList_mxJPO.MenuRef;
 import org.mxupdate.update.util.AbstractParser_mxJPO;
-import org.mxupdate.update.util.AbstractParser_mxJPO.ParseException;
-import org.mxupdate.update.util.AbstractParser_mxJPO.SimpleCharStream;
-import org.mxupdate.update.util.AbstractParser_mxJPO.Token;
-import org.mxupdate.update.util.AbstractParser_mxJPO.TokenMgrError;
 import org.mxupdate.update.util.AdminPropertyList_mxJPO.AdminProperty;
 
 /**
@@ -4377,7 +4371,7 @@ this.setValue(_role, "kind", Role_mxJPO.Kind.Role);
           }
             case KIND_PROJECT_GROUP: {
                 jj_consume_token(KIND_PROJECT_GROUP);
-                this.setValue(_role, "kind", Role_mxJPO.Kind.ProjectGroup);
+                this.setValue(_role, "kind", Role_mxJPO.Kind.GroupProject);
                 break;
             }
         default:

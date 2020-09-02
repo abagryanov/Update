@@ -123,7 +123,7 @@ public class Role_mxJPO
                 this.kind = Kind.Project;
             }
             if (roleTypes[2].equalsIgnoreCase("true")) {
-                this.kind = Kind.ProjectGroup;
+                this.kind = Kind.GroupProject;
             }
 //            if ("FALSE,TRUE".equals(testRoleType))  {
 //                this.kind = Kind.Project;
@@ -205,7 +205,7 @@ public class Role_mxJPO
                 _mql.newLine().cmd("asanorg");
             } else if (this.kind == Kind.Project)  {
                 _mql.newLine().cmd("asaproject");
-            } else if (this.kind == Kind.ProjectGroup) {
+            } else if (this.kind == Kind.GroupProject) {
                 _mql.newLine().cmd("asaprojectgroup");
             }
         }
@@ -230,6 +230,6 @@ public class Role_mxJPO
         Project,
         /** The role is an organizational role. */
         Organization,
-        ProjectGroup;
+        GroupProject;
     }
 }
