@@ -37,7 +37,6 @@ import org.mxupdate.update.zparser.MxParser_mxJPO;
 import org.mxupdate.util.MqlBuilderUtil_mxJPO;
 import org.mxupdate.util.MqlBuilderUtil_mxJPO.MultiLineMqlBuilder;
 
-import matrix.util.MatrixException;
 
 /**
  * The class is used to export, create, delete and update roles within MX.
@@ -106,20 +105,30 @@ public class Role_mxJPO
      */
     @Override
     public void parse(final ParameterCache_mxJPO _paramCache)
-        throws MatrixException, ParseException
+        throws ParseException
     {
         super.parse(_paramCache);
 
         // must the role type evaluated?
         if (_paramCache.getValueBoolean(ValueKeys.UserRoleSupportRoleType))  {
             final String testRoleType = MqlBuilderUtil_mxJPO.mql()
-                    .cmd("escape print role ").arg(this.getName()).cmd(" select ").arg("isanorg").cmd(" ").arg("isaproject").cmd(" dump")
+                    .cmd("escape print role ").arg(this.getName()).cmd(" select ").arg("isanorg").cmd(" ").arg("isaproject").cmd(" ").arg("isaprojectgroup").cmd(" dump")
                     .exec(_paramCache.getContext());
-            if ("FALSE,TRUE".equals(testRoleType))  {
-                this.kind = Kind.Project;
-            } else if ("TRUE,FALSE".equals(testRoleType)) {
+            String[] roleTypes = testRoleType.split(",");
+            if (roleTypes[0].equalsIgnoreCase("true")) {
                 this.kind = Kind.Organization;
             }
+            if (roleTypes[1].equalsIgnoreCase("true")) {
+                this.kind = Kind.Project;
+            }
+            if (roleTypes[2].equalsIgnoreCase("true")) {
+                this.kind = Kind.ProjectGroup;
+            }
+//            if ("FALSE,TRUE".equals(testRoleType))  {
+//                this.kind = Kind.Project;
+//            } else if ("TRUE,FALSE".equals(testRoleType)) {
+//                this.kind = Kind.Organization;
+//            }
         }
     }
 
@@ -195,6 +204,8 @@ public class Role_mxJPO
                 _mql.newLine().cmd("asanorg");
             } else if (this.kind == Kind.Project)  {
                 _mql.newLine().cmd("asaproject");
+            } else if (this.kind == Kind.ProjectGroup) {
+                _mql.newLine().cmd("asaprojectgroup");
             }
         }
         DeltaUtil_mxJPO.calcPackage(_paramCache, _mql, this, _current);
@@ -217,6 +228,7 @@ public class Role_mxJPO
         /** The role is a project role. */
         Project,
         /** The role is an organizational role. */
-        Organization;
+        Organization,
+        ProjectGroup;
     }
 }
