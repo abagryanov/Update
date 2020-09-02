@@ -37,6 +37,7 @@ import org.mxupdate.update.zparser.MxParser_mxJPO;
 import org.mxupdate.util.MqlBuilderUtil_mxJPO;
 import org.mxupdate.util.MqlBuilderUtil_mxJPO.MultiLineMqlBuilder;
 
+import matrix.util.MatrixException;
 
 /**
  * The class is used to export, create, delete and update roles within MX.
@@ -105,7 +106,7 @@ public class Role_mxJPO
      */
     @Override
     public void parse(final ParameterCache_mxJPO _paramCache)
-        throws ParseException
+        throws MatrixException, ParseException
     {
         super.parse(_paramCache);
 
