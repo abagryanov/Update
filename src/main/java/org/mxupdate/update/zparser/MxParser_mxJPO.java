@@ -4369,11 +4369,6 @@ this.setValue(_role, "kind", Role_mxJPO.Kind.Project);
 this.setValue(_role, "kind", Role_mxJPO.Kind.Role);
           break;
           }
-            case KIND_PROJECT_GROUP: {
-                jj_consume_token(KIND_PROJECT_GROUP);
-                this.setValue(_role, "kind", Role_mxJPO.Kind.AProjectGroup);
-                break;
-            }
         default:
           jj_la1[118] = jj_gen;
           jj_consume_token(-1);

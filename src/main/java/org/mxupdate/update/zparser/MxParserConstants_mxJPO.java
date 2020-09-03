@@ -654,8 +654,6 @@ interface MxParserConstants_mxJPO {
   /** RegularExpression Id. */
   int SORTTYPE_NONE = 318;
 
-  int KIND_PROJECT_GROUP = 319;
-
   /** Lexical state. */
   int SORTTYPE_EXPECTED = 0;
   /** Lexical state. */
@@ -1054,7 +1052,6 @@ interface MxParserConstants_mxJPO {
     "\"numeric\"",
     "\"other\"",
     "\"none\"",
-    "\"aprojectgroup\"",
   };
 
 }
